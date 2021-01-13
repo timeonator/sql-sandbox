@@ -28,18 +28,33 @@ con.connect(function(err) {
 });
 
   // if connection is successful
-  con.query(query, (err, result, fields) => {
-    // if any error while executing above query, throw error
-    if (err) throw err;
+//    con.query(query, (err, result, fields) => {
+//     // if any error while executing above query, throw error
+//     if (err) throw err;
 
-    // if there is no error, you have the result
-    console.log(result);
-});
+//     // if there is no error, you have the result
+//     // console.log(result);
+// });
 // });
 
 const requestListener = function (req, res) {
-  res.writeHead(200);
-  res.end('Hello, World!');
+  const {method, url } = req;
+  if(url == '/list') {
+    console.log(`processing ${req.method}/${req.url}`);
+    con.query(query, (err, result, fields) => {
+      // if any error while executing above query, throw error
+      if (err) throw err;
+      console.log(`error = ${err}, result = ${result}, fields = ${fields}`);
+      res.writeHead(200, {
+        'Content-Type': 'application/json',
+        'X-Powered-By': 'timon'
+      });
+      res.end(JSON.stringify(result));
+    });
+  } else {
+    res.writeHead(200);
+    res.end('Hello, World!');
+  }
 }
 
 const server = http.createServer(requestListener);

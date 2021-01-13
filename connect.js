@@ -13,6 +13,7 @@ const password = process.env.DB_PASS || '';
 const database = process.env.DB_DATABASE || 'pikto';
 
 // Create the connection with required details
+    console.log(host, user, password, database);
 const con = mysql.createConnection({
   host, user, password, database,
 });
