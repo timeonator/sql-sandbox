@@ -1,6 +1,6 @@
 # sql-sandbox
 
- A workspace for working out sql and backend kinks, sql-sandbox is just a bench in the code shop. There are no deliverables an nothing of interest to anybody but me within.
+ A space for working out sql and backend kinks, sql-sandbox is just a bench in the code shop. There are no deliverables and nothing of interest to anybody but me within.
 
 #
 ## Authorization Problem Connecting to mysql 8 with Node
