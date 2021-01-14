@@ -7,10 +7,10 @@ const port = 3000;
 const host = process.env.DB_HOST || 'localhost';
 
 // Get the User for DB from Environment or use default
-const user = process.env.DB_USER || 'root';
+const user = process.env.DB_USER || 'timeonator';
 
 // Get the Password for DB from Environment or use default
-const password = process.env.DB_PASS || '';
+const password = process.env.DB_PASS || 'lull5gogM#';
 
 // Get the Database from Environment or use default
 const database = process.env.DB_DATABASE || 'pikto';
@@ -39,12 +39,13 @@ con.connect(function(err) {
 
 const requestListener = function (req, res) {
   const {method, url } = req;
-  if(url == '/list') {
-    console.log(`processing ${req.method}/${req.url}`);
+  console.log(`processing ${req.method} ${req.url}`);
+  if(url == '/users') {
+
     con.query(query, (err, result, fields) => {
       // if any error while executing above query, throw error
       if (err) throw err;
-      console.log(`error = ${err}, result = ${result}, fields = ${fields}`);
+//      console.log(`error = ${err}, result = ${result}, fields = ${fields}`);
       res.writeHead(200, {
         'Content-Type': 'application/json',
         'X-Powered-By': 'timon'
