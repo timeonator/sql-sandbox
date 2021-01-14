@@ -1,5 +1,7 @@
 # sql-sandbox
 
+ A space for working out sql and backend kinks, sql-sandbox is just a bench in the code shop. There are no deliverables and nothing of interest to anybody but me within.
+
 #
 ## Authorization Problem Connecting to mysql 8 with Node
 I had problems autorizing from node. Ended up using the following:
